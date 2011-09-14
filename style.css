@@ -14,16 +14,18 @@ table tr td
     padding-right: 1em;
 }
 
+/* first column: icon */
 table tr td:first-child
 {
     padding-left: 1em;
-    padding-right: 0;
+    padding-right: .25em;
 }
 
+/* last two columns: date and size */
 table tr td + td + td,
 table tr td + td + td + td
 {
     font-size: 85%;
-	font-family: monospace;
-	white-space: pre;
+    font-family: monospace;
+    white-space: pre;
 }
