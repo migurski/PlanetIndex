@@ -1,12 +1,16 @@
 IndexOrderDefault Descending Date
-IndexOptions NameWidth=* +FoldersFirst -HTMLTable
+IndexOptions NameWidth=* +FoldersFirst +HTMLTable +SuppressDescription
 
 HeaderName HEADER.cgi
 AddType text/html .cgi
 IndexIgnore HEADER.cgi
 
-AddIcon /icons/script.png .md5
-AddIcon /icons/compressed.gif .bz2
+IndexIgnore logo.png
+IndexIgnore style.css
+IndexStyleSheet style.css
+
+AddIcon /icons/blank.png .md5
+AddIcon /icons/compressed.png .bz2
 
 # hide the script that made the listing
 IndexIgnore get-listing.py

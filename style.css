@@ -1,0 +1,29 @@
+body
+{
+    font-family: sans-serif;
+    line-height: 1.25em;
+}
+
+li
+{
+    margin-bottom: 1em;
+}
+
+table tr td
+{
+    padding-right: 1em;
+}
+
+table tr td:first-child
+{
+    padding-left: 1em;
+    padding-right: 0;
+}
+
+table tr td + td + td,
+table tr td + td + td + td
+{
+    font-size: 85%;
+	font-family: monospace;
+	white-space: pre;
+}
