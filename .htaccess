@@ -1,0 +1,12 @@
+IndexOrderDefault Descending Date
+IndexOptions NameWidth=* +FoldersFirst -HTMLTable
+
+HeaderName HEADER.cgi
+AddType text/html .cgi
+IndexIgnore HEADER.cgi
+
+AddIcon /icons/script.png .md5
+AddIcon /icons/compressed.gif .bz2
+
+# hide the script that made the listing
+IndexIgnore get-listing.py
