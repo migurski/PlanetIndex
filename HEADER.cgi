@@ -48,40 +48,62 @@ def file_info(file, name):
     hash = search(r'\w{32}', open(file+'.md5', 'r').read()).group(0)
     date = nice_time(time() - stat(file).st_mtime)
 
-    return '<li><b><a href="%(file)s">%(name)s</a></b><br><b>%(size)s</b>, created %(date)s ago.<br>md5: %(hash)s.</li>' % locals()
+    return '<b><a href="%(file)s">%(name)s</a></b><br><b>%(size)s</b>, created %(date)s ago.<br><small>md5: %(hash)s</small>.' % locals()
 
-print 'Content-Type: text/html\n'
-print '<img id="logo" src="logo.png">'
-print '<h1>', environ.get('HTTP_HOST', 'planet.openstreetmap.org'), '</h1>'
-
-print '<ul>'
-print file_info('planet-latest.osm.bz2', 'Latest Weekly Planet File')
-print file_info('changesets-latest.osm.bz2', 'Latest Weekly Changesets')
-print '</ul>'
+planet_link = file_info('planet-latest.osm.bz2', 'Latest Weekly Planet File')
+changesets_link = file_info('changesets-latest.osm.bz2', 'Latest Weekly Changesets')
 
 print """
+<img id="logo" src="logo.png" alt="OSM logo" width="128" height="128">
+<h1>Planet OSM</h1>
+
 <p>
 The files found here are regularly-updated, complete copies of the OpenStreetMap.org
 database, and are distributed under a Creative Commons Attribution-ShareAlike 2.0 license.
-
-The complete planet is very large, so you may prefer to use one of
-<a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Mirrors">several periodic extracts</a>
-(individual countries or states) from third parties. <a href="http://download.geofabrik.de/osm/">GeoFabrik.de</a>
-and <a href="http://downloads.cloudmade.com/">Cloudmade.com</a> are two providers
-of extracts with up-to-date worldwide coverage.
-
-You can <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Processing_the_File">process the file</a>
-or extracts with a variety of tools. <a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis</a>
-is a general-purpose command-line tool for converting the data among different formats
-and databases, and <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql">Osm2pgsql</a>
-is a tool for importing the data into a Postgis database for rendering maps.
+For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">see the project wiki</a>.
 </p>
 
-<p>
-For more information about Planet.osm, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">see the project wiki</a>.
-</p>
+<table id="about">
+  <tr>
+    <td>
+        <h2>Complete OSM Data</h2>
+        <p>%(planet_link)s</p>
+        <p>%(changesets_link)s</p>
+        <p>
+        Each week, a new and complete copy of all data in OpenStreetMap is made
+        available as a compressed XML file, along with a smaller file showing changes
+        from the previous week.
+        </p>
+    </td>
+    <td>
+        <h2>Extracts &amp; Mirrors</h2>
+        <p>
+        The complete planet is very large, so you may prefer to use one of
+        <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Mirrors">several periodic extracts</a>
+        (individual countries or states) from third parties. <a href="http://download.geofabrik.de/osm/">GeoFabrik.de</a>
+        and <a href="http://downloads.cloudmade.com/">Cloudmade.com</a> are two providers
+        of extracts with up-to-date worldwide coverage.
+        </p>
+        <p>
+        <a href="http://wiki.openstreetmap.org/wiki/Coastline_error_checker">Processed coastline data</a>
+        derived from OSM data is also needed for rendering usable maps, and can be found in a
+        <a href="http://tile.openstreetmap.org/processed_p.tar.bz2">single shapefile</a> (360MB).
+        </p>
+    </td>
+    <td>
+        <h2>Using The Data</h2>
+        <p>
+        You can <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Processing_the_File">process the file</a>
+        or extracts with a variety of tools. <a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis</a>
+        is a general-purpose command-line tool for converting the data among different formats
+        and databases, and <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql">Osm2pgsql</a>
+        is a tool for importing the data into a Postgis database for rendering maps.
+        </p>
+    </td>
+  </tr>
+</table>
 
 <p>
 If you find data within OpenStreetMap that you believe is an infringement of someone else's copyright, then please make contact with the <a href="http://wiki.openstreetmap.org/wiki/Data_working_group">OpenStreetMap Data Working Group</a>.
 </p>
-"""
+""" % locals()

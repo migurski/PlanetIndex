@@ -1,20 +1,31 @@
-body
+body,
+table#about tr *
 {
     font-family: sans-serif;
     line-height: 1.25em;
 }
 
-img#logo, h1
+body { margin: 2em; }
+img#logo { float: left; }
+img#logo, h1 { margin: 0 1em 0 0; }
+a { white-space: nowrap; }
+
+li { margin-bottom: 1em; }
+body>p { width: 42em; }
+
+table#about
 {
-	float: left;
-	margin: 1em 1em 1em 0;
+    clear: left;
+    margin: 3em 0 2em 0;
 }
 
-ul { clear: left; }
-li { margin-bottom: 1em; }
-p { width: 48em; }
+table tr th { text-align: left; }
 
-table tr td { padding-right: 1em; }
+table tr td
+{
+    padding-right: 1em;
+    vertical-align: top;
+}
 
 /* first column: icon */
 table tr td:first-child
@@ -27,7 +38,17 @@ table tr td:first-child
 table tr td + td + td,
 table tr td + td + td + td
 {
-    font-size: 85%;
+    font-size: 90%;
     font-family: monospace;
     white-space: pre;
+}
+
+/* override a bunch of the stuff above */
+table#about tr th,
+table#about tr td
+{
+    width: 20em;
+    padding: 0 1em 0 0;
+    font-size: 100%;
+    white-space: normal;
 }
