@@ -4,15 +4,17 @@ body
     line-height: 1.25em;
 }
 
-li
+img#logo, h1
 {
-    margin-bottom: 1em;
+	float: left;
+	margin: 1em 1em 1em 0;
 }
 
-table tr td
-{
-    padding-right: 1em;
-}
+ul { clear: left; }
+li { margin-bottom: 1em; }
+p { width: 48em; }
+
+table tr td { padding-right: 1em; }
 
 /* first column: icon */
 table tr td:first-child
