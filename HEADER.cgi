@@ -76,13 +76,13 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
         </p>
     </td>
     <td>
-        <h2>Extracts &amp; Mirrors</h2>
+        <h2>Using The Data</h2>
         <p>
-        The complete planet is very large, so you may prefer to use one of
-        <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Mirrors">several periodic extracts</a>
-        (individual countries or states) from third parties. <a href="http://download.geofabrik.de/osm/">GeoFabrik.de</a>
-        and <a href="http://downloads.cloudmade.com/">Cloudmade.com</a> are two providers
-        of extracts with up-to-date worldwide coverage.
+        You can <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Processing_the_File">process the file</a>
+        or extracts with a variety of tools. <a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis</a>
+        is a general-purpose command-line tool for converting the data among different formats
+        and databases, and <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql">Osm2pgsql</a>
+        is a tool for importing the data into a Postgis database for rendering maps.
         </p>
         <p>
         <a href="http://wiki.openstreetmap.org/wiki/Coastline_error_checker">Processed coastline data</a>
@@ -91,13 +91,13 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
         </p>
     </td>
     <td>
-        <h2>Using The Data</h2>
+        <h2>Extracts &amp; Mirrors</h2>
         <p>
-        You can <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Processing_the_File">process the file</a>
-        or extracts with a variety of tools. <a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis</a>
-        is a general-purpose command-line tool for converting the data among different formats
-        and databases, and <a href="http://wiki.openstreetmap.org/wiki/Osm2pgsql">Osm2pgsql</a>
-        is a tool for importing the data into a Postgis database for rendering maps.
+        The complete planet is very large, so you may prefer to use one of
+        <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Mirrors">several periodic extracts</a>
+        (individual countries or states) from third parties. <a href="http://download.geofabrik.de/osm/">GeoFabrik.de</a>
+        and <a href="http://downloads.cloudmade.com/">Cloudmade.com</a> are two providers
+        of extracts with up-to-date worldwide coverage.
         </p>
     </td>
   </tr>
