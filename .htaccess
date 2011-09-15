@@ -12,5 +12,6 @@ IndexStyleSheet style.css
 AddIcon /icons/blank.png .md5
 AddIcon /icons/compressed.png .bz2
 
-# hide the script that made the listing
+# hide extra distracting files
 IndexIgnore get-listing.py
+IndexIgnore preview.jpg
