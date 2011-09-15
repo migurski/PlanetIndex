@@ -71,8 +71,8 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
         <p>%(changesets_link)s</p>
         <p>
         Each week, a new and complete copy of all data in OpenStreetMap is made
-        available as a compressed XML file, along with a smaller file showing changes
-        from the previous week.
+        available as a compressed XML file, along with a smaller file with
+        complete metadata for all changes made since the previous week.
         </p>
     </td>
     <td>
