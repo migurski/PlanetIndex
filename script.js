@@ -52,38 +52,35 @@ function niceSize(bytes)
 
 function sizeAgeHTML(file)
 {
-    if(XMLHttpRequest != undefined)
-    {
-        var xhr = new XMLHttpRequest();
-        xhr.open('HEAD', file, false);
-        xhr.send();
-        
-        var modified = xhr.getResponseHeader('Last-Modified'),
-            length = parseInt(xhr.getResponseHeader('Content-Length')),
-            age = niceTime((new Date()).getTime() - Date.parse(modified)),
-            size = niceSize(length);
-        
-        console.log([modified, age]);
-        console.log([length, size]);
-        
-        return '<br><b>'+size+'</b>, created '+age+' ago.';
+    if(XMLHttpRequest == undefined) {
+        return '';
     }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', file, false);
+    xhr.send();
     
-    return '';
+    var modified = xhr.getResponseHeader('Last-Modified'),
+        length = parseInt(xhr.getResponseHeader('Content-Length'));
+
+    var age = niceTime((new Date()).getTime() - Date.parse(modified)),
+        size = niceSize(length);
+    
+    return '<br><b>'+size+'</b>, created '+age+' ago.';
 }
 
 function hashHTML(file)
 {
-    if(XMLHttpRequest != undefined)
-    {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', file, false);
-        xhr.send();
-        
-        var hash = xhr.responseText.match(/\w{32}/)[0];
-        
-        return '<br><small>md5: '+hash+'</small>.';
+    if(XMLHttpRequest == undefined) {
+        return '';
     }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', file, false);
+    xhr.send();
     
-    return '';
+    var body = xhr.responseText,
+        hash = body.match(/\w{32}/)[0];
+    
+    return '<br><small>md5: '+hash+'</small>.';
 }
