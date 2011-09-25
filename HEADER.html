@@ -1,56 +1,3 @@
-#!/usr/bin/env python
-
-from time import time
-from os import stat, environ
-from re import search
-
-def nice_size(file):
-    size = stat(file).st_size
-    KB = 1024.
-    MB = 1024. * KB
-    GB = 1024. * MB
-    TB = 1024. * GB
-    
-    if size < KB:
-        size, suffix = size, ''
-    elif size < MB:
-        size, suffix = size/KB, 'KB'
-    elif size < GB:
-        size, suffix = size/MB, 'MB'
-    elif size < TB:
-        size, suffix = size/GB, 'GB'
-    else:
-        size, suffix = size/TB, 'TB'
-    
-    if size < 10:
-        return '%.1f %s' % (size, suffix)
-    else:
-        return '%d %s' % (size, suffix)
-
-def nice_time(time):
-    if time < 15:
-        return 'moments'
-    if time < 90:
-        return '%d seconds' % time
-    if time < 60 * 60 * 1.5:
-        return '%d minutes' % (time / 60.)
-    if time < 24 * 60 * 60 * 1.5:
-        return '%d hours' % (time / 3600.)
-    if time < 7 * 24 * 60 * 60 * 1.5:
-        return '%d days' % (time / 86400.)
-    if time < 30 * 24 * 60 * 60 * 1.5:
-        return '%d weeks' % (time / 604800.)
-
-    return '%d months' % (time / 2592000.)
-
-def file_info(file, name):
-    size = nice_size(file)
-    hash = search(r'\w{32}', open(file+'.md5', 'r').read()).group(0)
-    date = nice_time(time() - stat(file).st_mtime)
-
-    return '<b><a href="%(file)s">%(name)s</a></b><br><b>%(size)s</b>, created %(date)s ago.<br><small>md5: %(hash)s</small>.' % locals()
-
-print """
 <script src="script.js" type="text/javascript"></script>
 <img id="logo" src="logo.png" alt="OSM logo" width="128" height="128">
 <h1>Planet OSM</h1>
@@ -120,4 +67,3 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
 <p>
 If you find data within OpenStreetMap that you believe is an infringement of someone else's copyright, then please make contact with the <a href="http://wiki.openstreetmap.org/wiki/Data_working_group">OpenStreetMap Data Working Group</a>.
 </p>
-""" % locals()

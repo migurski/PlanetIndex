@@ -1,9 +1,8 @@
 IndexOrderDefault Descending Date
 IndexOptions NameWidth=* +FoldersFirst +HTMLTable +SuppressDescription
 
-HeaderName HEADER.cgi
-AddType text/html .cgi
-IndexIgnore HEADER.cgi
+HeaderName HEADER.html
+IndexIgnore HEADER.html
 
 IndexIgnore logo.png
 IndexIgnore script.js
