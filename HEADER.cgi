@@ -50,10 +50,8 @@ def file_info(file, name):
 
     return '<b><a href="%(file)s">%(name)s</a></b><br><b>%(size)s</b>, created %(date)s ago.<br><small>md5: %(hash)s</small>.' % locals()
 
-planet_link = file_info('planet-latest.osm.bz2', 'Latest Weekly Planet File')
-changesets_link = file_info('changesets-latest.osm.bz2', 'Latest Weekly Changesets')
-
 print """
+<script src="script.js" type="text/javascript"></script>
 <img id="logo" src="logo.png" alt="OSM logo" width="128" height="128">
 <h1>Planet OSM</h1>
 
@@ -67,8 +65,24 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
   <tr>
     <td>
         <h2>Complete OSM Data</h2>
-        <p>%(planet_link)s</p>
-        <p>%(changesets_link)s</p>
+        <p>
+            <b><a href="planet-latest.bz2">Latest Weekly Planet File</a></b>
+            <script type="text/javascript">
+            <!--
+                document.write(sizeAgeHTML('planet-latest.osm.bz2'));
+                document.write(hashHTML('planet-latest.osm.bz2.md5'));
+            //-->
+            </script>
+        </p>
+        <p>
+            <b><a href="changesets-latest.bz2">Latest Weekly Changesets</a></b>
+            <script type="text/javascript">
+            <!--
+                document.write(sizeAgeHTML('changesets-latest.osm.bz2'));
+                document.write(hashHTML('changesets-latest.osm.bz2.md5'));
+            //-->
+            </script>
+        </p>
         <p>
         Each week, a new and complete copy of all data in OpenStreetMap is made
         available as a compressed XML file, along with a smaller file with

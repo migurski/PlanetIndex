@@ -6,6 +6,7 @@ AddType text/html .cgi
 IndexIgnore HEADER.cgi
 
 IndexIgnore logo.png
+IndexIgnore script.js
 IndexIgnore style.css
 IndexStyleSheet style.css
 
