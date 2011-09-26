@@ -54,6 +54,13 @@ planet_link = file_info('planet-latest.osm.bz2', 'Latest Weekly Planet File')
 changesets_link = file_info('changesets-latest.osm.bz2', 'Latest Weekly Changesets')
 
 print """
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
 <img id="logo" src="logo.png" alt="OSM logo" width="128" height="128">
 <h1>Planet OSM</h1>
 
@@ -65,8 +72,18 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
 
 <table id="about">
   <tr>
-    <td>
+    <th>
         <h2>Complete OSM Data</h2>
+    </th>
+    <th>
+        <h2>Using The Data</h2>
+    </th>
+    <th>
+        <h2>Extracts &amp; Mirrors</h2>
+    </th>
+  </tr>
+  <tr>
+    <td>
         <p>%(planet_link)s</p>
         <p>%(changesets_link)s</p>
         <p>
@@ -76,7 +93,11 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
         </p>
     </td>
     <td>
-        <h2>Using The Data</h2>
+        <p>
+        You are granted permission to use OpenStreetMap data by 
+        <a href="http://osm.org/copyright">the OpenStreetMap License</a>, which also describes 
+        your obligations.
+        </p>
         <p>
         You can <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Processing_the_File">process the file</a>
         or extracts with a variety of tools. <a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis</a>
@@ -91,7 +112,6 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
         </p>
     </td>
     <td>
-        <h2>Extracts &amp; Mirrors</h2>
         <p>
         The complete planet is very large, so you may prefer to use one of
         <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Mirrors">several periodic extracts</a>
