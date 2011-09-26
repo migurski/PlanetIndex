@@ -94,6 +94,11 @@ For more information, <a href="http://wiki.openstreetmap.org/wiki/Planet.osm">se
     </td>
     <td>
         <p>
+        You are granted permission to use OpenStreetMap data by 
+        <a href="http://osm.org/copyright">the OpenStreetMap License</a>, which also describes 
+        your obligations.
+        </p>
+        <p>
         You can <a href="http://wiki.openstreetmap.org/wiki/Planet.osm#Processing_the_File">process the file</a>
         or extracts with a variety of tools. <a href="http://wiki.openstreetmap.org/wiki/Osmosis">Osmosis</a>
         is a general-purpose command-line tool for converting the data among different formats
